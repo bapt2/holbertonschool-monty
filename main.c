@@ -9,7 +9,7 @@ int main (int argc, char **argv)
 	int i = 0;
 	int x = 0;
 
-	x = atoi(argv[2]);
+	x = atoi(argv[1]);
 
 	if (_isdigit(i) == 0)
 	{
