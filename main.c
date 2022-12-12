@@ -13,7 +13,7 @@ int main (int argc, char **argv)
 
 	if (_isdigit(i) == 0)
 	{
-		fprintf(stderr, "L%x: push %d: push integer\n", x, i);
+		fprintf(stderr, "L%x: usage: push integer\n", x);
 		exit(EXIT_FAILURE);
 	}
 	return (i);
