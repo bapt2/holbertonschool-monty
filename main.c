@@ -1,6 +1,5 @@
 #include "monty.h"
 
-
 int main (int argc, char **argv)
 {
 	(void)argc;
@@ -8,9 +7,10 @@ int main (int argc, char **argv)
 
 	int i = 0;
 	int x = 0;
+	ssize_t fd, r;
 
-	x = atoi(argv[1]);
-
+	fd = open(argv[1], O_RDONLY);
+	r = read(fd, , );
 	if (_isdigit(i) == 0)
 	{
 		fprintf(stderr, "L%x: usage: push integer\n", x);
