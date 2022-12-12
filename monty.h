@@ -1,7 +1,7 @@
-#define _LIFO_FIFO
 #ifndef _LIFO_FIFO
+#define _LIFO_FIFO
 
-#include <sdlib.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 /**
@@ -35,4 +35,13 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/**
+ * _isdigit - Entry point
+ * Description: checks for a digit
+ * @c: c is the character
+ * Return: Alaways 0 (Success)
+ */
+
+int _isdigit(int c);
 #endif
