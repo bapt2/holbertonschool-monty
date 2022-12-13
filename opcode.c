@@ -1,8 +1,8 @@
-#include "main.c"
+#include "monty.h"
 
-void _push(stack_t **stack, unsigned int line_number)
+int main(unsigned int line_nuber, stack_t **stack)
 {
-	int i;
+	int i = 0;
 	char *token;
 
 	token = strtok(NULL, " \t\r\n\a");
@@ -11,6 +11,13 @@ void _push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	n = atoi(token);
-	if (
+	i = atoi(token);
+
+	if (add_dnodeint_end(stack, i) == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+	
+	return (0);
 }

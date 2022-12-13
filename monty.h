@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -44,4 +45,5 @@ typedef struct instruction_s
  */
 
 int _isdigit(int c);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
 #endif
