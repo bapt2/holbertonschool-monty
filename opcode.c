@@ -25,7 +25,6 @@ void _push(unsigned int line_number, stack_t **stack)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-
 }
 
 /**
@@ -42,7 +41,7 @@ void _pall(unsigned int ln, stack_t **stack)
 	pos = *stack;
 	while (pos != NULL)
 	{
-		dprintf(stdout, "%d\n", pos->n);
+		dprintf(STDOUT_FILENO, "%d\n", pos->n);
 		pos = pos->next;
 	}
 }
@@ -95,7 +94,6 @@ void _pop(unsigned int line_number, stack_t **stack)
  * @stack: void
  * Return: void
 */
-
 void _nop(unsigned int line_number, stack_t **stack)
 {
 	(void)line_number;

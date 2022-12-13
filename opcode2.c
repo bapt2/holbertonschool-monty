@@ -20,7 +20,7 @@ void _add(unsigned int line_number, stack_t **stack)
 	else
 	{
 		pos->next = pos;
-		if (pos->next == NULL && pos->prev = pos)
+		if (pos->next == NULL && pos->prev == pos)
 		{
 			sum += pos->n;
 			pos->prev->n = sum;
@@ -40,17 +40,18 @@ void _add(unsigned int line_number, stack_t **stack)
 void _swap(unsigned int line_number, stack_t **stack)
 {
 	stack_t *pos = NULL;
+	int y = 0;
 
 	pos = *stack;
 	if (pos->next == NULL && pos->prev->prev == NULL)
 	{
-		fprint(stderr, "L%u: can't swap, stack too short", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short", line_number);
 		exit(EXIT_FAILURE);
 	}
 	else 
 	{
 		pos->next = pos;
-		if (pos->next == NULL && pos->prev = pos)
+		if (pos->next == NULL && pos->prev == pos)
 		{
 			pos->next->n = y;
 			pos->next->n = pos->prev->n;
