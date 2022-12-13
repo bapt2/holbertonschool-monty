@@ -84,8 +84,8 @@ void _pop(unsigned int line_number, stack_t **stack)
 		exit(EXIT_FAILURE);
 	}
 	*stack = pos->next;
-	if (current->next != NULL)
-		current->next->prev = NULL;
+	if (pos->next != NULL)
+		pos->next->prev = NULL;
 	free(pos);
 }
 
