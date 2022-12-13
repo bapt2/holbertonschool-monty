@@ -6,7 +6,7 @@
  * @stack: the stack
  * Return: void
 */
-void push(unsigned int line_number, stack_t **stack)
+void _push(unsigned int line_number, stack_t **stack)
 
 {
 	int i = 0;
@@ -36,7 +36,7 @@ void push(unsigned int line_number, stack_t **stack)
 */
 void _pall(unsigned int ln, stack_t **stack)
 {
-	stack_t *pos = NULL;
+	stack_t *pos;
 	(void)ln;
 
 	pos = *stack;
@@ -55,14 +55,14 @@ void _pall(unsigned int ln, stack_t **stack)
 */
 void _pint(unsigned int line_number, stack_t **stack)
 {
-	stack_t *pos = NULL;
+	stack_t *pos;
 
 	pos = *stack;
 	if (pos != 0)
 		dprintf(stdout, "%d\n", pos->n);
 	else
 	{
-		fprintf(stderr, "L%u: con't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -75,12 +75,24 @@ void _pint(unsigned int line_number, stack_t **stack)
 */
 void _pop(unsigned int line_number, stack_t **stack)
 {
+	stack_t *pos;
 
-
+	pos = *stack;
+	if (!pos)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack \n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	*stack = pos->next;
+	if (current->next != NULL)
+		current->next->prev = NULL;
+	free(pos);
 }
 
 /**
  * _nop - do nothing
+ * @line_number: void
+ * @stack: void
  * Return: void
 */
 
