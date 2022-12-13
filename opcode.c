@@ -1,5 +1,6 @@
 #include "monty.h"
 
+<<<<<<< HEAD
 /**
  * _push - push an element to the stack
  * @line_number: the line where the error is
@@ -7,9 +8,17 @@
  * Return: void
 */
 void push(unsigned int line_number, stack_t **stack)
+=======
+int main(int argc, char **argv)
+>>>>>>> 89c654e7cecef32c6defd08e72388d415e30b57f
 {
+	(void) argc;
+	(void) argv;
+
 	int i = 0;
 	char *token;
+	stack_t **stack = 0;
+	unsigned int line_number = 0;
 
 	token = strtok(NULL, " \t\r\n\a");
 	if (!token || _isdigit(i) == 0)
