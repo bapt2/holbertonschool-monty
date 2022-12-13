@@ -1,30 +1,30 @@
 #include "monty.h"
 
 /**
- * _push - push an element to the stack
+ * _push - creates a new node at the beginning of the stack
  * @line_number: the line where the error is
  * @stack: the stack
  * Return: void
 */
 void _push(unsigned int line_number, stack_t **stack)
-
 {
-	int i = 0;
-	char *token;
+	(void)line_number;
+	stack_t *pos, *tmp;
 
-	token = strtok(NULL, " \t\r\n\a");
-	if (!token || _isdigit(i) == 0)
+	pos = malloc(sizeof(stack_t));
+	if (pos == NULL)
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		dprintf("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	i = atoi(token);
+	pos->n = n;
+	pos->next = NULL;
+	pos->prev = NULL;
 
-	if (add_dnodeint_end(stack, i) == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
+	pos->next = *stack;
+	if (*stack != NULL)
+		(*stack)->prev = pos;
+	*stack = pos;
 }
 
 /**
