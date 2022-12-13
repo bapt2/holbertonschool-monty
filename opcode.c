@@ -1,9 +1,14 @@
 #include "monty.h"
 
-int main(unsigned int line_nuber, stack_t **stack)
+int main(int argc, char **argv)
 {
+	(void) argc;
+	(void) argv;
+
 	int i = 0;
 	char *token;
+	stack_t **stack = 0;
+	unsigned int line_number = 0;
 
 	token = strtok(NULL, " \t\r\n\a");
 	if (!token || _isdigit(i) == 0)
