@@ -45,7 +45,6 @@ typedef struct instruction_s
  */
 
 int _isdigit(int c);
-stack_t *add_dnodeint_end(stack_t **head, const int n);
 
 void _swap(unsigned int line_number, stack_t **stack);
 void _add(unsigned int line_number, stack_t **stack);
