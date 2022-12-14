@@ -40,7 +40,7 @@ void _add(stack_t **stack, unsigned int line_number)
  * Return: void
  */
 
-void _swap(stack_t **stack ,unsigned int line_number)
+void _swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack, *head = *stack;
 	int i = 0, tempdata, headdata;
