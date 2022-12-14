@@ -11,7 +11,7 @@ void _push(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 	stack_t *pos;
-	
+
 	pos = new_Node(value);
 
 	pos->next = *stack;
@@ -72,7 +72,7 @@ void _pop(stack_t **stack, unsigned int line_number)
 	pos = *stack;
 	if (!pos)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack \n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	*stack = pos->next;
