@@ -11,7 +11,7 @@ void _push(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 	stack_t *pos;
-	
+
 	pos = new_Node(value);
 
 	pos->next = *stack;
