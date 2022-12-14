@@ -4,6 +4,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <sys/types.h>
+#include <errno.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -38,16 +43,27 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
- * _isdigit - Entry point
- * Description: checks for a digit
- * @c: c is the character
- * Return: Alaways 0 (Success)
+ * struct buffer - structure to store the buffer
+ * @fd: File descriptor
+ * @line: Line to getline
+ *
+ * Description: To handle the file and getline
  */
+typedef struct buffer
+{
+	FILE *fd;
+	char *line;
+} buffer_t;
 
-int _isdigit(int c);
+extern buffer_t buffer;
+extern int value;
 
+int _isdigit(char *c);
+
+void execute_cmd(char *argv);
+int get_opc(stack_t **stack, char *arg, char *data, int linecount);
 void _swap(unsigned int line_number, stack_t **stack);
-void _add(unsigned int line_number, stack_t **stack);
+void _add(stack_t **stack, unsigned int line_numbe);
 void _push(unsigned int line_number, stack_t **stack);
 void _pall(unsigned int ln, stack_t **stack);
 void _pint(unsigned int line_number, stack_t **stack);
