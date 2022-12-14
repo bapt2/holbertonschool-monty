@@ -7,12 +7,21 @@
  * Return: Alaways 0 (Success)
  */
 
-int _isdigit(int c)
-
+int _isdigit(char *c)
 {
-        if (c >= '0' && c <= '9')
-                return (1);
+	char *temp = c;
 
-        else
-                return (0);
+	if (c == NULL)
+		return (0);
+	if (*temp == '-')
+		temp++;
+
+	for (; *temp != '\0'; temp++)
+	{
+		if ((*temp < '0' || *temp > '9'))
+		{
+			return (0);
+		}
+	}
+	return (1);
 }
