@@ -9,12 +9,13 @@
 void _push(unsigned int line_number, stack_t **stack)
 {
 	(void)line_number;
-	stack_t *pos, *tmp;
+	stack_t *pos;
+	int n = 0;
 
 	pos = malloc(sizeof(stack_t));
 	if (pos == NULL)
 	{
-		dprintf("Error: malloc failed\n");
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	pos->n = n;
@@ -58,10 +59,10 @@ void _pint(unsigned int line_number, stack_t **stack)
 
 	pos = *stack;
 	if (pos != 0)
-		dprintf(stdout, "%d\n", pos->n);
+		dprintf(STDOUT_FILENO, "%d\n", pos->n);
 	else
 	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -79,7 +80,7 @@ void _pop(unsigned int line_number, stack_t **stack)
 	pos = *stack;
 	if (!pos)
 	{
-		fprintf(stderr, "L%u: can't pop an empty stack \n", line_number);
+		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack \n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	*stack = pos->next;
