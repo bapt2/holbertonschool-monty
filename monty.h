@@ -64,12 +64,12 @@ void ins_error(FILE *fd, char *line, stack_t *stack, char *count, int item);
 void free_dlistint(stack_t *head);
 void execute_cmd(char *argv);
 int get_opc(stack_t **stack, char *arg, char *data, int linecount);
-void _swap(unsigned int line_number, stack_t **stack);
-void _add(unsigned int line_numbe, stack_t **stack);
-void _push(unsigned int line_number, stack_t **stack);
-void _pall(unsigned int ln, stack_t **stack);
-void _pint(unsigned int line_number, stack_t **stack);
-void _pop(unsigned int line_number, stack_t **stack);
-void _nop(unsigned int line_number, stack_t **stack);
+void _swap(stack_t **stack, unsigned int line_number);
+void _add(stack_t **stack, unsigned int line_numbe);
+void _push(stack_t **stack, unsigned int line_number);
+void _pall(stack_t **stack, unsigned int ln);
+void _pint(stack_t **stack, unsigned int line_number);
+void _pop(stack_t **stack, unsigned int line_number);
+void _nop(stack_t **stack, unsigned int line_number);
 
 #endif

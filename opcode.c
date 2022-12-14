@@ -1,12 +1,13 @@
 #include "monty.h"
 
+int value;
 /**
  * _push - creates a new node at the beginning of the stack
  * @line_number: the line where the error is
  * @stack: the stack
  * Return: void
 */
-void _push(unsigned int line_number, stack_t **stack)
+void _push(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 	stack_t *pos;
@@ -34,7 +35,7 @@ void _push(unsigned int line_number, stack_t **stack)
  * @stack: the stack
  * Return: void
 */
-void _pall(unsigned int ln, stack_t **stack)
+void _pall(stack_t **stack, unsigned int ln)
 {
 	stack_t *pos;
 	(void)ln;
@@ -53,7 +54,7 @@ void _pall(unsigned int ln, stack_t **stack)
  * @stack: the stack
  * Return: void
 */
-void _pint(unsigned int line_number, stack_t **stack)
+void _pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *pos;
 
@@ -73,7 +74,7 @@ void _pint(unsigned int line_number, stack_t **stack)
  * @stack: the stack
  * Return: void
 */
-void _pop(unsigned int line_number, stack_t **stack)
+void _pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *pos;
 
@@ -95,7 +96,7 @@ void _pop(unsigned int line_number, stack_t **stack)
  * @stack: void
  * Return: void
 */
-void _nop(unsigned int line_number, stack_t **stack)
+void _nop(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 	(void)stack;
