@@ -65,7 +65,7 @@ void free_dlistint(stack_t *head);
 void execute_cmd(char *argv);
 int get_opc(stack_t **stack, char *arg, char *data, int linecount);
 void _swap(unsigned int line_number, stack_t **stack);
-void _add(stack_t **stack, unsigned int line_numbe);
+void _add(unsigned int line_numbe, stack_t **stack);
 void _push(unsigned int line_number, stack_t **stack);
 void _pall(unsigned int ln, stack_t **stack);
 void _pint(unsigned int line_number, stack_t **stack);
