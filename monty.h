@@ -71,5 +71,5 @@ void _pall(stack_t **stack, unsigned int ln);
 void _pint(stack_t **stack, unsigned int line_number);
 void _pop(stack_t **stack, unsigned int line_number);
 void _nop(stack_t **stack, unsigned int line_number);
-
+stack_t *new_Node(int n);
 #endif
