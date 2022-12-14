@@ -1,61 +1,68 @@
 #include "monty.h"
 
 /**
- * _add - adds the two top elements of the stack
- * @line_number: the line where the error is
- * @stack: the stack
- * Return: void
-*/
-void _add(unsigned int line_number, stack_t **stack)
-{
-	stack_t *pos = NULL;
-	int sum = 0;
+ *_add - adds the top two elements of the stack
+ *@stack: stack storing data
+ *@line_number: line of the command
+ *
+ *Return: nothing
+ */
 
-	pos = *stack;
-	if (pos->next == NULL && pos->prev->prev == NULL)
+void _add(stack_t **stack, unsigned int line_number)
+{
+	int i = 0, sum = 0;
+	stack_t *temp;
+
+	temp = *stack;
+	while (temp)
 	{
-		fprintf(stderr, "L%u: can't add, stack too short", line_number);
+		temp = temp->next;
+		i++;
+	}
+	if (i < 2)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't add, stack too short\n", line_number);
+		fclose(buffer.fd);
+		free(buffer.line);
+		free(temp);
 		exit(EXIT_FAILURE);
 	}
-	else
-	{
-		pos->next = pos;
-		if (pos->next == NULL && pos->prev == pos)
-		{
-			sum += pos->n;
-			pos->prev->n = sum;
-			pos->next->prev = NULL;
-			pos->next = NULL;
-			free(pos);
-		}
-	}
+	temp = *stack;
+	sum = temp->n + temp->next->n;
+	temp->next->n = sum;
+	_pop(stack, line_number);
 }
 
 /**
- * _swap - swaps the two top elements of the stack
- * @line_number: the line where the error is
- * @stack: the stack
+ * _swap - swaps the top two elements of the stack
+ * @stack: doubly linked list storing the data
+ * @line_number: line of the command
  * Return: void
-*/
+ */
+
 void _swap(unsigned int line_number, stack_t **stack)
 {
-	stack_t *pos = NULL;
-	int y = 0;
+	stack_t *temp = *stack, *head = *stack;
+	int i = 0, tempdata, headdata;
 
-	pos = *stack;
-	if (pos->next == NULL && pos->prev->prev == NULL)
+	while (temp)
 	{
-		fprintf(stderr, "L%u: can't swap, stack too short", line_number);
+		temp = temp->next;
+		i++;
+	}
+	if (i < 2)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't swap, stack too short\n", line_number);
+		fclose(buffer.fd);
+		free(buffer.line);
+		free(temp);
+		free(head);
 		exit(EXIT_FAILURE);
 	}
-	else 
-	{
-		pos->next = pos;
-		if (pos->next == NULL && pos->prev == pos)
-		{
-			pos->next->n = y;
-			pos->next->n = pos->prev->n;
-			pos->prev->n = y;
-		}
-	}
+	temp = *stack;
+	headdata = head->n;
+	temp = temp->next;
+	tempdata = temp->n;
+	temp->n = headdata;
+	head->n = tempdata;
 }
