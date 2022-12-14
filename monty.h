@@ -59,6 +59,8 @@ extern buffer_t buffer;
 extern int value;
 
 int _isdigit(char *c);
+void push_error(FILE *fd, char *line, stack_t *stack, int count);
+void ins_error(FILE *fd, char *line, stack_t *stack, char *count, int item);
 
 void execute_cmd(char *argv);
 int get_opc(stack_t **stack, char *arg, char *data, int linecount);
